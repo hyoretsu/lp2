@@ -1,0 +1,15 @@
+/.vscode
+/build
+.vs/
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+main
+*.exe
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.gcda
+*.gcno
+*.gcov
