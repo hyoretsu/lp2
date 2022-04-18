@@ -4,10 +4,11 @@
 /**
  * Multiplies the process until it reaches a desired number.
  *
- * @param quantity Number of total processes to be created, including parent.
+ * @param quantity Number of total processes to be created.
  */
 void createChildren(int quantity) {
     int originalProcess = getpid(), iteration = 1;
+    quantity += 1;
 
     while(quantity != 0) {
         // Register nearest power of 2 and calculate remainder

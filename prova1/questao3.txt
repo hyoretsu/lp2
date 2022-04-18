@@ -1,0 +1,1 @@
+Consistência de memória é seguir um protocolo para se certificar que diferentes programas em concorrência não modifiquem diferentes versões das variáveis em memória ou até mesmo as corrompam. Pode-se usar as funções da biblioteca POSIX <sys/shm.h> para criar um espaço de memória compartilhada para ser usada pelos diferentes processos.
