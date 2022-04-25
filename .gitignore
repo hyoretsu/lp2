@@ -13,3 +13,4 @@ main
 *.gcda
 *.gcno
 *.gcov
+README.txt
