@@ -1,0 +1,25 @@
+1) Faça um programa em C/C++ em que você compare o tempo de criação de 30
+threads e 30 processos, onde as threads e processos criadas apenas executem
+uma função que exiba uma mensagem ("Nova thread" ou "Novo processo") e as faça
+dormir por 2s. Use alguma função de medição de tempo* para tal e escreva suas
+impressões sobre o resultado, respondendo qual das opções demandou menos tempo
+de execução para ser realizada e faça a relação disso com consumo de
+processamento e memória. Para finalizar, faça uma clara distinção (em
+comentários no código) das diferenças principais entre threads e processos.
+Ao término do programa, nenhum processo deverá permanecer em execução.
+
+* Funções sugeridas para uso no processo de medição de tempo de execução são
+listadas abaixo.
+- Em C/C++: time(),  clock(), clock_gettime() (biblioteca time.h),
+  gettimeofday() (biblioteca sys/time.h);
+- Em C++: método chrono::high_resolution_clock (biblioteca chrono).
+- Sugestão de referência: https://tinyurl.com/medirtempoemc
+
+2) Faça dois programas em C que solicitem uma string para o usuário (com até 8
+caracteres). Os dois programas irão contar as ocorrências da string em um dos
+6 arquivos anexados à esta lista utilizando concorrência - um deles usará
+threads e o outro processos. Cada arquivo deverá ser processado por uma
+thread/processo separado e no fim o programa deverá apresentar a soma das
+ocorrências calculadas por cada processo antes de seu término. Comente o
+código com as diferença do uso de threads e processos (do ponto de vista do
+programador).

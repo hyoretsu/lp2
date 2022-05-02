@@ -8,11 +8,10 @@ int strSize = 9;
 /** Number of substring occurences */
 int count = 0;
 
-struct funcArgs {
+typedef struct {
     char* str;
     int n;
-};
-typedef struct funcArgs FuncArgs;
+} FuncArgs;
 
 void* threadSearch(FuncArgs* args){
     char content[strSize];
@@ -50,7 +49,7 @@ int main(void) {
     for (int i = 1; i <= 5; i++) {
         FuncArgs funcArgs = {str, i};
 
-        pthread_create(&id[i - 1], NULL, (void*) threadSearch, &funcArgs);
+        pthread_create(&id[i - 1], NULL, threadSearch, &funcArgs);
         pthread_join(id[i - 1], (void*) &count);
     }
 

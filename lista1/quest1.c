@@ -1,42 +1,49 @@
 #include <pthread.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <time.h>
 #include "../utils/createChildren.c"
 
 #ifdef _WIN32
-#include <Windows.h>
+#include <dos.h>
 #else
 #include <unistd.h>
 #endif
 
-#define PROCESS_COUNT 30
+#define QUANTITY 30
 #define SLEEP_TIME 2
 
-int threadsTime = 0;
-
-void* threadSearch(){
+void threadSearch(){
     printf("Nova thread\n");
-    // sleep(SLEEP_TIME);
-
-    pthread_exit(&threadsTime);
+    sleep(SLEEP_TIME);
 }
 
 int main() {
     int i;
+    pid_t originalPid = getpid();
     clock_t startTime = clock();
 
-    pthread_t id[30];
-    for (i = 1; i <= 30; i++) {
+    pthread_t id[QUANTITY];
+    for (i = 1; i <= QUANTITY; i++) {
         pthread_create(&id[i - 1], NULL, threadSearch, NULL);
-        pthread_join(id[i - 1], (void*) &threadsTime);
     }
 
     clock_t endTime = clock();
-    printf("Tempo necessário para criar 30 threads: %f\n", (double) (endTime - startTime) / CLOCKS_PER_SEC);
+    printf("Tempo necessário para criar %d threads: %f ms\n", QUANTITY, (double) (endTime - startTime) / (CLOCKS_PER_SEC / 1000));
 
-    createChildren(31);
-    printf("Novo processo\n");
-    // sleep(2);
+    startTime = clock();
+
+    createChildren(QUANTITY + 1);
+
+    if (getpid() != originalPid) {
+        printf("Novo processo\n");
+        sleep(2);
+        exit(0);
+    }
+
+    endTime = clock();
+
+    printf("Tempo necessário para criar %d processos: %f\n ms", QUANTITY, (double) (endTime - startTime) / (CLOCKS_PER_SEC / 1000));
 
     return 0;
 }
