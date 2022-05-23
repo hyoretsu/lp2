@@ -1,0 +1,9 @@
+1) O que é o problema da seção crítica? Dê exemplos de situações onde tal problema acontece e fale sobre as propriedades almejadas para uma solução ideal.
+
+2) Relacione o controle do ciclo de vida de threads a partir da API POSIX Threads (PThreads) com o problema da seção crítica e cite uma forma de usar recursos da API PThreads para contornar este problema.
+
+3) Elabore (em código C/C++) uma solução para o problema da seção crítica. Em um sistema bancário múltiplas threads podem realizar operações de débito e crédito no saldo dos clientes – elabore uma solução para a manipulação do saldo utilizando locks, implementando o protocolo de entrada utilizando uma instrução atômica (destaque qual é esta instrução e como ela funciona).
+
+4) Faça um programa em C/C++ onde 6 threads (além da principal) gerarão uma letra aleatória (caractere) cada. Estas letras deverão ser combinadas em uma palavra (uma string) na thread principal (função  main), que deverá exibi-la e também determinar se esta é um palíndromo ou não. Palíndromos são frases ou palavras quepodem ser lidas, indiferentemente, da esquerda para a direita, conforme o sentido habitual da leitura, ou da direitapara a esquerda, sem que haja mudança da sua significação (exemplos de palíndromos com 6 letras: “AAAAAA”,“ABAABA”, “ABCCBA”, “MUSSUM”). Repita este processo 10 vezes e use barreiras para sincronizar as threads.
+
+5) Faça um programa em C/C++ onde são criadas 2 threads: uma thread produtora, e a outra consumidora. A thread produtora deverá gerar 100 valores inteiros aleatórios entre 0 e 255 e armazenar em um array compartilhado com 10 posições. A thread consumidora buscará as informações no array e exibi-los, de forma que nenhum valor seja perdido. Use semáforos implementando a solução do buffer compartilhado.
