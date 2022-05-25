@@ -1,0 +1,76 @@
+Segunda Prova – Linguagem de Programação II – UFPB – 2021.2
+Professor: Carlos Eduardo Batista
+
+***** ATENÇÃO!!!!!! LEIA TODAS AS INSTRUÇÕES!!!!!! ***********
+
+- A prova tem 3 questões que somam 12 pontos – porém a nota máxima é 10,00
+
+- As respostas da prova devem ser enviadas por e-mail (para bidu @ ci.ufpb.br)
+ em um ÚNICO arquivo ZIP contendo os códigos solicitados.
+
+- O título do e-mail e do arquivo ZIP deverá conter "[PROVA02-LPII-212]",
+ seu nome e matrícula.
+
+- TODO CÓDIGO *DEVE* ser comentado com a explicação da lógica e demais
+ informações solicitadas na questão.
+
+- Plágio será punido com a perda da pontuação das respostas por todos os
+ participantes.
+
+- O envio deverá ser feito até as 12h30 do dia 25/05/2022
+
+***** ATENÇÃO!!!!!! LEIA TODAS AS INSTRUÇÕES!!!!!! ***********
+
+(Questão 1 - 5,0 pontos) Faça um programa em C/C++ que controle o acesso de
+duas filas de threads a duas seções críticas diferentes. O programa deverá
+possuir duas variáveis globais (x e y) de tipo float, iniciadas com zero, que
+serão manipuladas por 5 threads cada (num total de 10 threads). As threads de
+indices pares deverão executar uma função que manipule o valor da variável x,
+incrementando-a com um valor aleatório entre 1 e 5, depois dormindo 250ms; as
+threads com indice ímpar executarão uma função que manipula o valor da variável
+y, incrementando-a com valor com aleatório entre 2 e 25 e depois dormir 300ms.
+
+Implemente uma solução para o problema da seção crítica que atenda as 4
+propriedades de uma solução ideal, que use espera ocupada e que garanta que
+todas as threads incrementem as duas variáveis globais dentro de um ciclo de
+iterações. O programa deverá ser finalizado quando a soma dos valores de x e y
+for  maior que 100. Comente o código explicando como foi feito o controle de
+acesso às duas seções críticas, explicando qual a função atômica utilizada.
+
+(Questão 2 - 5,0 pontos) Faça um programa em C que 4 threads geram uma letra
+aleatória (caractere), e as depositam em uma palavra (string) na thread; então,
+a thread principal (função  main), depois de aguardar cada uma das threads
+depositar sua letra, deve exibir a string gerada. Posteriormente esta string
+deverá ser consumida, caractere por caractere, por uma thread consumidora (5a
+thread criada além da main). Esta thread receberá a string e contará quantas
+vogais nela constam, exibindo o valor. O processo deverá se repetir 5 vezes;
+finalmente, o programa deverá exibir o total de vogais de todas as palavras
+geradas e encerrar. Use barreiras (pthread.h) e semáforos (semaphore.h) e
+comente como suas funções foram utilizadas.
+
+(Questão 3 - 2,0 pontos) Faça um programa em C/C++ que implemente uma solução
+para o problema do buffer compartilhado. Com um buffer compartilhado de 1024
+chars, o Programa deverá implementar duas funções:
+
+	- produtor() - gera um caractere alfanumérico aleatório e o deposita
+	no buffer; exibe o valor e a posição no buffer na tela;	dorme 50ms;
+	repete;
+
+	- consumidor() - captura um dos valores disponíveis no buffer
+	compartilhado e armazena em um arquivo; dorme um tempo aleatório
+	entre 30ms e 90ms; repete;
+
+A função produtor deverá ser realizada por uma thread, assim como a função
+consumidor.
+
+Use semáforos (biblioteca semaphore.h) para sincronizar o acesso ao buffer
+compartilhado, de forma que todos os caracteres gerados pelos produtores sejam
+consumidos uma vez, evitando qualquer problema ao ler ou escrever no buffer.
+Quando o buffer for consumido 4 vezes (ou seja, quando os produtores tiverem
+gerado 4096 caracteres e estes forem consumidos) finalize o programa, salvando
+o conteúdo do arquivo. Comente o código explicando o uso dos semáforos.
+
+Referências para manipulação de arquivos em C:
+
+https://www.inf.pucrs.br/~pinho/LaproI/Arquivos/Arquivos.htm (português)
+http://www.csc.villanova.edu/~mdamian/C/c-files.htm (inglês)
