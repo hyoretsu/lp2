@@ -1,0 +1,33 @@
+(Questão 1 - 10 pontos) Faça um programa em C/C++ que crie um servidor TCP que
+atenda os requisitos listados a seguir.
+
+	1) Trate até 8 conexões simultâneas de clientes na porta 9900;
+
+	2) Cada novo cliente deve receber uma string de boas vindas ao se conectar ao
+	servidor (“WELCOME”);
+
+	3) O servidor tratará strings enviadas pelos clientes como comandos, e
+	retornára o resultado para eles de acordo com os comandos, como descrito a
+	seguir. Os seguintes comandos devem ser suportados:
+
+		a) "RNDNUM\n" - o servidor irá gerar e retornar um valor aleatório
+	        entre 0 e 1000;
+
+		b) "CRTIME\n" - o servidor retornará a data e hora corrente;
+
+		c) "FINISH\n" - o servidor finaliza a conexão do cliente;
+
+		d) "SHTDWN\n" - o servidor é finalizado (fim do programa);
+
+	4) O servidor deverá armazenar todas as solicitações realizadas pelos clientes
+	em um arquivo de texto chamado "log.txt". O acesso de escrita e leitura a esse
+	arquivo deverá ser feito através de um monitor.
+
+A saída do seu programa deve ser bem planejada, de forma a mostrar o que está
+acontecendo em cada momento relevante. Teste o servidor com múltiplos clientes,
+usando instâncias de telnet ou nc (netcat).
+
+(Questão 2 - 4 pontos) Faça um programa em C/C++ que possa ser usado como
+cliente do servidor implementado na questão anterior. Comente o código
+explicando a diferença entre os papéis de cliente e servidor, ressaltando quais
+chamadas feitas no código são necessárias no contexto específico do protocolo TCP.
